@@ -68,7 +68,7 @@ export default class tlfFileInfo extends Plugin {
 
 		const ribbonIcon = this.addRibbonIcon('info', 'File Info Panel', (evt: MouseEvent) => {
 			// open or close the file info window
-			this.toggleView();
+			this.activateView();
 		});
 
 		this.addCommand({
@@ -114,7 +114,7 @@ export default class tlfFileInfo extends Plugin {
 			}
 		};
 		
-		const requeryStats = debounce(1000, async () => {
+		const requeryStats = debounce(10, async () => {
 			var file = this.app.workspace.getActiveFile();
 			var data = "";
 			var isText = 0;
